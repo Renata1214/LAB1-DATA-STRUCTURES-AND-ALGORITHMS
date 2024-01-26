@@ -11,7 +11,7 @@ expected output can be verified.
 2. You cannot use STL containers in your code. Do not use standard C++
 header includes
 
-##Summary of the tasks:
+## Summary of the tasks:
 
 1. Create statically sized Vector (its capacity is a constant variable)
 2. Add Vector methods: push_back, pop_back, size
