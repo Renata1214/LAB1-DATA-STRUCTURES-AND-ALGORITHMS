@@ -1,6 +1,6 @@
 # LAB1-DATA-STRUCTURES-AND-ALGORITHMS
 
-LAB 1 
+## LAB 1 
 
 In this Lab you are required to create Vector container using C-style mechanisms
 new/delete/pointers (without using STL).
