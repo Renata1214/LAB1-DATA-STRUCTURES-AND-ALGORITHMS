@@ -5,6 +5,7 @@ Do i need to include the copy, move, etc constructors in this case? My aanswer: 
 
 #include "payload.h" 
 #include <string>
+#pragma once 
 using std::string;
 
 struct Vector
@@ -13,12 +14,15 @@ struct Vector
 
 // MEMBERS
 static int VecCounter;
-string name;
 int IdVec;
+Payload * Object1;
+Payload * Object2;
+Payload * Object3;
+Payload * Object4;
 
 //METHOD DECLARATION
 
 // Constructor Default
-Vector (string n = " ") : name(n), IdVec(VecCounter++) { }
+Vector (string n1 = "",string n2 = "", string n3 = "",string n4 = "");//Ask how they managed to write born function before declaring it in payload.h
 
 };
