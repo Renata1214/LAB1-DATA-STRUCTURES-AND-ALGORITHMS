@@ -8,21 +8,31 @@ Do i need to include the copy, move, etc constructors in this case? My aanswer: 
 #pragma once 
 using std::string;
 
+
 struct Vector
 {
 //... your code here, containing member & method declaration
 
 // MEMBERS
-static int VecCounter;
+static int Current_Size;
+static const int VecMax=4;
 int IdVec;
-Payload * Object1;
-Payload * Object2;
-Payload * Object3;
-Payload * Object4;
+Payload * Objects [VecMax];
 
 //METHOD DECLARATION
 
 // Constructor Default
-Vector (string n1 = "",string n2 = "", string n3 = "",string n4 = "");//Ask how they managed to write born function before declaring it in payload.h
+Vector ();//Ask how they managed to write born function before declaring it in payload.h
+
+~Vector ();
+
+//Vector Push Back
+void push_back (const string &name);
+
+//Vector Pop Back
+void pop_back ();
+
+//Vector Size
+const int size ();
 
 };
