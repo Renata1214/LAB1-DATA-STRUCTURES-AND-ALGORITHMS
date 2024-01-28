@@ -50,18 +50,21 @@ To resolve this, you can change the function declaration to accept a const refer
 
 
 //Vector Pop Back
-    void Vector::pop_back (){
-       for (int i=3; i>=0;i--){
-        if(Objects[i]!=nullptr){
-            Objects[i]=nullptr;
-            --Current_Size;
-            break;
-        }
-        else {
-            cout << "No more objects to pop_back" << std::endl;
-        }
-       }
+    void Vector::pop_back() {
+    if (Current_Size <= 0) {
+        cout << "Vector is empty. No objects to pop_back." << "\n";
+        return;
     }
+
+    // Decrement the size before deleting the last object
+    --Current_Size;
+
+    // Check if the last object is dynamically allocated
+    if (Objects[Current_Size] != nullptr) {
+        delete Objects[Current_Size]; // Deallocate the dynamically allocated object
+        Objects[Current_Size] = nullptr; // Set the pointer to nullptr after deallocation
+    }
+}
 
 //Vector Size
     int Vector::size () const {
