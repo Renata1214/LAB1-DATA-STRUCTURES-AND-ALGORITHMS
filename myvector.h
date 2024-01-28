@@ -33,6 +33,6 @@ void push_back (const string &name);
 void pop_back ();
 
 //Vector Size
-const int size ();
+int size () const;
 
 };

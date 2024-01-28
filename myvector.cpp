@@ -64,7 +64,7 @@ To resolve this, you can change the function declaration to accept a const refer
     }
 
 //Vector Size
-    const int Vector::size (){
+    int Vector::size () const {
         return Current_Size;
     };
 

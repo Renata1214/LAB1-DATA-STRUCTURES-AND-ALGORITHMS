@@ -22,7 +22,6 @@ int main()
  }
 }
 
-
 /*
 Expected Value
 Vector size: 2
