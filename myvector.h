@@ -8,7 +8,6 @@ Do i need to include the copy, move, etc constructors in this case? My aanswer: 
 #pragma once 
 using std::string;
 
-
 struct Vector
 {
 //... your code here, containing member & method declaration
