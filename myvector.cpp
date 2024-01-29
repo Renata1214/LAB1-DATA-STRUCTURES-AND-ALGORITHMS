@@ -19,8 +19,7 @@ Vector::Vector (){
     Vector:: ~ Vector (){
         for (int i = 0; i < VecMax; ++i) {
             if(Objects[i]!=nullptr){
-                 Objects[i]->~Payload();
-                delete Objects[i]; // Deallocate the dynamically allocated objects
+                 Objects[i]->~Payload();// Deallocate the dynamically allocated objects
             }
     }
     }
@@ -32,7 +31,7 @@ Vector::Vector (){
     void Vector:: push_back(const string &name)
     {
         if(Current_Size<4){
-
+            Objects[0]->~Payload();
             for(int i=0;i<VecMax-1;i++)
             {
                 Objects[i]=Objects[i+1];
@@ -41,7 +40,6 @@ Vector::Vector (){
         Payload* PushBack = new Payload(name); // Dynamically allocate a new Payload object
         Objects[3] = PushBack;
         ++Current_Size;
-        cout << "Object created"<< '\n';
         }
     }
 /*
@@ -61,8 +59,7 @@ To resolve this, you can change the function declaration to accept a const refer
     --Current_Size;
     // Check if the last object is dynamically allocated
     if (Objects[Current_Size] != nullptr) {
-        Objects[Current_Size]->~Payload();
-        delete Objects[Current_Size]; // Deallocate the dynamically allocated object
+        Objects[Current_Size]->~Payload();// Deallocate the dynamically allocated object
         Objects[Current_Size] = nullptr; // Set the pointer to nullptr after deallocation
     }
 }
