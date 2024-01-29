@@ -19,6 +19,7 @@ Vector::Vector (){
     Vector:: ~ Vector (){
         for (int i = 0; i < VecMax; ++i) {
             if(Objects[i]!=nullptr){
+                 Objects[i]->~Payload();
                 delete Objects[i]; // Deallocate the dynamically allocated objects
             }
     }
@@ -30,13 +31,17 @@ Vector::Vector (){
         //enough times to fill the vector with user created payload objects, the function will not longer execute
     void Vector:: push_back(const string &name)
     {
-        if(Current_Size>4){
-            for(int i=0;i<VecMax-1;i++){
+        if(Current_Size<4){
+
+            for(int i=0;i<VecMax-1;i++)
+            {
                 Objects[i]=Objects[i+1];
             }
+
         Payload* PushBack = new Payload(name); // Dynamically allocate a new Payload object
         Objects[3] = PushBack;
         ++Current_Size;
+        cout << "Object created"<< '\n';
         }
     }
 /*
@@ -46,21 +51,17 @@ String Literal to Non-const Reference: If the push_back function is declared as 
 To resolve this, you can change the function declaration to accept a const reference to a string:
 */
 
-
-
-
 //Vector Pop Back
     void Vector::pop_back() {
     if (Current_Size <= 0) {
         cout << "Vector is empty. No objects to pop_back." << "\n";
         return;
     }
-
     // Decrement the size before deleting the last object
     --Current_Size;
-
     // Check if the last object is dynamically allocated
     if (Objects[Current_Size] != nullptr) {
+        Objects[Current_Size]->~Payload();
         delete Objects[Current_Size]; // Deallocate the dynamically allocated object
         Objects[Current_Size] = nullptr; // Set the pointer to nullptr after deallocation
     }
