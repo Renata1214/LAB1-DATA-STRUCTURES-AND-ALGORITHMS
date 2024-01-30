@@ -6,15 +6,14 @@
 definition*/
 using std:: cout;
 
-int Vector::Current_Size = 0;
+int Vector:: VecCounter =0;
 
 Vector::Vector (){
-    IdVec= Current_Size+1;
-    for (int i=0;i<VecMax;i++){
-        Payload* tempPayload = new Payload(); // Dynamically allocate a new Payload object
-        Objects[i] = tempPayload;
-        }
-    }//Ask how they managed to write born function before declaring it in payload.h
+    IdVec= VecCounter+1;
+    Capacity=1;
+    Objects = new Payload*[Capacity];
+    ++VecCounter;
+        } //Ask how they managed to write born function before declaring it in payload.h
 
     Vector:: ~ Vector (){
         for (int i = 0; i < VecMax; ++i) {
@@ -22,6 +21,8 @@ Vector::Vector (){
                  Objects[i]->~Payload();// Deallocate the dynamically allocated objects
             }
     }
+    delete[] Objects;
+
     }
 
     //Vector Push Back
@@ -30,18 +31,24 @@ Vector::Vector (){
         //enough times to fill the vector with user created payload objects, the function will not longer execute
     void Vector:: push_back(const string &name)
     {
-        if(Current_Size<4){
-            Objects[0]->~Payload();
-            for(int i=0;i<VecMax-1;i++)
-            {
-                Objects[i]=Objects[i+1];
-            }
-
-        Payload* PushBack = new Payload(name); // Dynamically allocate a new Payload object
-        Objects[3] = PushBack;
-        ++Current_Size;
+        if(Capacity<=VecCounter){
+            Capacity= 2*Capacity;
+            Payload** temp = new Payload*[Capacity];
+                for (int i = 0; i < VecCounter; ++i) {
+                    temp[i] = Objects[i];
+                }       
+            delete[] Objects;
+            Objects = temp;
+            Objects[VecCounter] = new Payload(name);
+            delete[] temp;
+            ++VecCounter;
         }
-    }
+        else{
+              Objects[VecCounter] = new Payload(name); //Correct Index because the VecCounter is later increased
+                ++VecCounter;
+        }
+
+        }
 /*
 String Literal to Non-const Reference: If the push_back function is declared as void push_back(string &name);,
  passing a string literal like "pear" to a non-const reference will result in an error. 
@@ -51,21 +58,23 @@ To resolve this, you can change the function declaration to accept a const refer
 
 //Vector Pop Back
     void Vector::pop_back() {
-    if (Current_Size <= 0) {
+
+    if (VecCounter <= 0) {
         cout << "Vector is empty. No objects to pop_back." << "\n";
         return;
     }
-    // Decrement the size before deleting the last object
-    --Current_Size;
-    // Check if the last object is dynamically allocated
-    if (Objects[Current_Size] != nullptr) {
-        Objects[Current_Size]->~Payload();// Deallocate the dynamically allocated object
-        Objects[Current_Size] = nullptr; // Set the pointer to nullptr after deallocation
-    }
+    --VecCounter;
+   //Check if payload objects are correctly deleted
+    delete Objects[VecCounter];
 }
 
 //Vector Size
     int Vector::size () const {
-        return Current_Size;
+        return VecCounter;
     };
+
+//Vector Capacity
+int Vector::capacity () const {
+    return Capacity;
+}
 
