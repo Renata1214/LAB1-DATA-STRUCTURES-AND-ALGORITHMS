@@ -13,12 +13,12 @@ v.capacity() << '\n';
  {
  Vector v;
  v.push_back("apple");
- showVector(v);
- v.push_back("pear");
- v.push_back("banana");
- showVector(v);
- v.pop_back();
- showVector(v);
+showVector(v);
+v.push_back("pear");
+v.push_back("banana");
+showVector(v);
+v.pop_back();
+showVector(v);
  }
 }
 
