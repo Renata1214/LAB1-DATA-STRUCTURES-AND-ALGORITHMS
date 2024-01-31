@@ -3,7 +3,7 @@
 
 using std::cout;
 int Payload::counter = 0;
-const bool REPORT = true;
+const bool REPORT = false;
 
 void Payload::say_born() const
 {
@@ -22,4 +22,10 @@ void Payload::print() const
  cout << '(' ;
  if ( REPORT ) cout << id << ':';
  cout << name << ')';
+}
+
+//Debugging function
+int Payload::tryout1 () const{
+
+return id;
 }

@@ -33,4 +33,7 @@ say_born(); }
  void say_die() const;
 // Method to print the object’s data
  void print() const;
+
+//Debugging Function
+ int tryout1 () const;
 };

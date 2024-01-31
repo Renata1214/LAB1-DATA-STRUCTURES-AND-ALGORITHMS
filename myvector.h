@@ -44,4 +44,7 @@ int size () const;
 
 int capacity () const ;
 
+//Debugging function
+Payload tryout () const ;
+
 };

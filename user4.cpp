@@ -14,6 +14,7 @@ v.capacity() << '\n';
  Vector v;
  v.push_back("apple");
 showVector(v);
+// cout << v.tryout().tryout1()<< '\n';
 v.push_back("pear");
 v.push_back("banana");
 showVector(v);
