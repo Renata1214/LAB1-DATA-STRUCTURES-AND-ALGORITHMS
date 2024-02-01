@@ -35,5 +35,6 @@ say_born(); }
  void print() const;
 
 //Debugging Function
- int tryout1 () const;
-};
+ //int tryout1 () const;
+//};
+
