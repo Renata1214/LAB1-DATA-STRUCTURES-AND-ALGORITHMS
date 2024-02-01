@@ -3,7 +3,7 @@
 
 using std::cout;
 int Payload::counter = 0;
-const bool REPORT = false;
+const bool REPORT = true;
 
 void Payload::say_born() const
 {
