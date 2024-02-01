@@ -1,4 +1,3 @@
-//Is the vector supposed to have a constant size also in exercise 2 ? Because otherwise the push back and pop back would lead for information to be los right?
 #include <iostream>
 #include "payload.h"
 #include "myvector.h"
