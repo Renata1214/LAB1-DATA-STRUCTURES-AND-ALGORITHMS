@@ -8,7 +8,7 @@ struct Vector
 {
 
 // MEMBERS
-static int VecCounter;
+int VecCounter;
 static const int VecMax=4;
 int IdVec;
 int Capacity;
@@ -27,12 +27,22 @@ void push_back (const Payload &name);
 //Vector Pop Back
 void pop_back ();
 
+// //Vector Push front
+void push_front (const Payload &name);
+
+//Vector Pop Front
+void pop_front ();
+
+//vector Operator Overload.
+Payload operator[](int i) ;
+
 //Vector Size
 int size () const;
 
 int capacity () const ;
 
 void print()const;
+
 
 // //Debugging function
 // Payload tryout () const ;
