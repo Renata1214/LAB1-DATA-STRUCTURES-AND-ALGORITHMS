@@ -1,3 +1,9 @@
+#include <iostream>
+#include "payload.h"
+
+
+using std:: cout;
+
 // Define a struct for the vector
 struct Vector {
     int capacity; // Capacity of the vector
