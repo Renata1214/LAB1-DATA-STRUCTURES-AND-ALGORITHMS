@@ -46,9 +46,16 @@ Vector::Vector (){
 //Vector Capacity
 int Vector::capacity () const { return Capacity;}
 
+void Vector::print()const{
+
+for(int i=0;i<VecCounter;i++){
+    Objects[i].print();}
+
+}
+
 
 //Debugging Function
-Payload Vector::tryout () const {
-    return Objects[VecCounter];
-};
+// Payload Vector::tryout () const {
+//     return Objects[VecCounter];
+// };
 
