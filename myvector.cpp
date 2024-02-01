@@ -68,7 +68,7 @@ Vector::Vector (){
                     delete[] Objects;
                     --VecCounter;
         for (int i = 0; i < VecCounter; ++i) {
-                       temp[i+1] = Objects[i]; }
+                       Objects[i]=temp[i+1]; }
     }
     }
 
