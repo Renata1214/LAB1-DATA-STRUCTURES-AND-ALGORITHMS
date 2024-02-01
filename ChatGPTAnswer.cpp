@@ -1,7 +1,6 @@
 #include <iostream>
 #include "payload.h"
 
-
 using std:: cout;
 
 // Define a struct for the vector
@@ -62,3 +61,24 @@ struct Vector {
         }
     }
 };
+
+int main()
+{
+ auto showVector = [](const Vector & v)
+ {
+ cout << "Vector size/capacity: " << v.size() << '/' <<
+v.capacity() << '\n';
+ };
+ {
+ Vector v;
+ v.push_back("apple");
+showVector(v);
+// cout << v.tryout().tryout1()<< '\n';
+v.push_back("pear");
+v.push_back("banana");
+showVector(v);
+v.pop_back();
+showVector(v);
+ }
+return 0;
+}
