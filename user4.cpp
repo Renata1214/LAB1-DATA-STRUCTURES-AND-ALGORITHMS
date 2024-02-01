@@ -23,6 +23,11 @@ v.push_back("banana");
 showVector(v);
 v.pop_back();
 showVector(v);
+cout<< "now pop back" << '\n';
+v.pop_front();
+showVector(v);
+v.push_front("grapes");
+showVector(v);
  }
 }
 

@@ -34,6 +34,7 @@ Vector::Vector (){
     if (VecCounter <= 0) {
         cout << "Vector is empty. No objects to pop_back." << "\n";}
     else{
+    Objects[VecCounter-1].~Payload();
     --VecCounter;
     }
 }
@@ -41,17 +42,20 @@ Vector::Vector (){
 // Vector push_front
     void Vector:: push_front(const Payload &name){
 
-        if (Capacity==VecCounter){
+        if (Capacity<=VecCounter){
              Capacity= 2*Capacity;
-             } 
-        Payload* temp = new Payload[Capacity];
+             Payload* temp = new Payload[Capacity];
                 for (int i = 0; i < VecCounter; ++i) {
-                       temp[i] = Objects[i]; } 
+                       temp[i] = Objects[i]; 
+                       } 
                     // Deallocate the old array
                     delete[] Objects;
-            Objects[0]= name;
-            for (int i = 0; i < VecCounter; ++i) {
-                       Objects[i+1]=temp[i];}
+                    Objects = temp;
+             } 
+                for (int i=VecCounter; i>0; i--){
+                Objects[i]=Objects[i-1];
+                }    
+                       Objects[0]= name;
         ++VecCounter;
     }
 
@@ -61,14 +65,10 @@ Vector::Vector (){
         if (VecCounter <= 0) {
         cout << "Vector is empty. No objects to pop_front." << "\n";}
     else{
-         Payload* temp = new Payload[Capacity];
-         for (int i = 0; i < VecCounter; ++i) {
-                       temp[i] = Objects[i]; } 
-                    // Deallocate the old array
-                    delete[] Objects;
-                    --VecCounter;
-        for (int i = 0; i < VecCounter; ++i) {
-                       Objects[i]=temp[i+1]; }
+                for (int i=0; i < VecCounter - 1; i++){
+                    Objects[i]=Objects[i+1];
+                }
+                --VecCounter;          
     }
     }
 
