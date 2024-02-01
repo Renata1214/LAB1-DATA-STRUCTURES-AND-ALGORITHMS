@@ -31,8 +31,6 @@ struct Vector {
             for (int i = 0; i < size1; ++i) {
                 new_elements[i] = elements[i];
             }
-            // Delete the old array
-            delete[] elements;
             // Point to the new array
             elements = new_elements;
         }
