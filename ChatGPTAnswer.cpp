@@ -71,6 +71,8 @@ int main()
  {
  cout << "Vector size/capacity: " << v.size() << '/' <<
 v.capacity() << '\n';
+ v.print();
+ cout << '\n';
  };
  {
  Vector v;
@@ -83,5 +85,4 @@ showVector(v);
 v.pop_back();
 showVector(v);
  }
-return 0;
 }
